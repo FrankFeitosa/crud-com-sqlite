@@ -11,6 +11,18 @@ export const getAllUsers = async (req, res) => {
     }
 };
 
+export const getIdUser = async (req, res) => {
+    const id = req.params.id
+    try {
+        const userId = await prisma.user.findUnique({
+            where:{ id: Number(id) }
+        })
+        res.status(200).json(userId)
+    } catch (error) {
+        console.error({message: "Id não encontrado", erro: error.message});
+    }
+}
+
 export const createAllUsers = async (req, res) => {
    try {
     const {name, email} = req.body
