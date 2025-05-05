@@ -11,10 +11,10 @@ export const getAllUsers = async (req, res) => {
     }
 };
 
-export const getIdUsers = async (req, res) => {
+export const getIdUser = async (req, res) => {
     const id = req.params.id
     try {
-        const userId = await prisma.user.findMany({
+        const userId = await prisma.user.findUnique({
             where:{ id: Number(id) }
         })
         res.status(200).json(userId)
