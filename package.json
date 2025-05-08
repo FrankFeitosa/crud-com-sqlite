@@ -21,7 +21,9 @@
   "homepage": "https://github.com/FrankFeitosa/crud-com-sqlite#readme",
   "dependencies": {
     "@prisma/client": "^6.7.0",
+    "body-parser": "^2.2.0",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "sqlite3": "^5.1.7",
     "zod": "^3.24.4"
   },

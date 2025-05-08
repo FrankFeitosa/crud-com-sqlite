@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import { createProductSchema } from "../schemas/productSchemas.js";
 
 const prisma = new PrismaClient();
 
@@ -25,11 +24,12 @@ export const getIdProduct = async (req, res) => {
 }
 
 export const createAllProducts = async (req, res) => {
-    const parseResult = createProductSchema.safeParse(req.body)
-    if(!parseResult.success){
-        return res.status(400).json({message: "Erro de validação", erros: parseResult.error.format()})
-    }
-    const {name, description, price, stock} = parseResult.data
+    // const parseResult = createProductSchema.safeParse(req.body)
+    // if(!parseResult.success){
+    //     return res.status(400).json({message: "Erro de validação", erros: parseResult.error.format()})
+    // }
+    // parseResult.data
+    const {name, description, price, stock} = req.body
    try {
 
     const newProduct = await prisma.product.create({
