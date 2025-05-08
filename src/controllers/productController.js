@@ -7,7 +7,8 @@ export const getAllProducts = async (req, res) => {
         const products = await prisma.product.findMany()
         res.status(200).json(products)
     } catch (error) {
-        res.status(500).json({message: "Produtos não encontrado", erro: error.message})
+        res.status(500).json({message: "Produtos não encontrado", 
+            details: `${error.message}\n${error.stack}`})
     }
 };
 
