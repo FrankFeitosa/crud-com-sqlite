@@ -8,11 +8,16 @@ export const createUserSchema = z.object({
     .regex(/[A-Z]/, "A senha deve ter pelo menos uma letra maíuscula")
 });
 
-export const updateUserSchema = z.string({
+export const updateUserSchema = z.object({
     name: z.string().min(3, "O nome deve ter pelo menos 3 letras").optional(),
     email: z.string().email("Email Inválido").optional(),
     password: z.string()
     .min(6, "A senha deve ter pelo menos 6 letras")
     .regex(/[A-Z]/, "A senha deve ter pelo menos uma letra maíuscula")
     .optional()
+})
+
+export const loginSchema = z.object({
+    email: z.string().email('Email Inválido!'),
+    password: z.string().min(1,"Senha é obrigatória!")
 })

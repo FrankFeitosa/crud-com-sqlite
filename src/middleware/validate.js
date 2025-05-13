@@ -20,6 +20,7 @@ export function validate(schema) {
     return (req, res, next) => {
 
         try {
+            // req.body = JSON.stringify(req.body)
             /*Validar o corpo da requisição contra 
             schema fornecido*/
             const validatedData = schema.parse(req.body)
